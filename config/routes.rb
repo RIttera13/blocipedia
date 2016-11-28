@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :wikis
-  resources :sessions, only: [:new, :create, :destroy]
 
   devise_for :users
   get 'welcome/index'
