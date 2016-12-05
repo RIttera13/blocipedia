@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   get 'welcome/index'
 
+  get 'wikis' => 'wikis#index'
+
   get 'about' => 'welcome#about'
 
   get 'blocipedia' => 'welcome#index'

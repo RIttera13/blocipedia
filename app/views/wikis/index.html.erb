@@ -4,13 +4,19 @@
     <br>
     <br>
     <div class="text-center signup-content">
-        <table class="table table-responsive">
-          <tr class="active">
-            <td>Wikis</td>
-            <td>edit</td>
-            <td>delete</td>
-          </tr>
-        </table>
+      <div class="table table-responsive">
+        <% @wikis.each do |wiki| %>
+          <div class="media">
+            <div class="media-body">
+              <small>
+                <%= link_to truncate(wiki.title, :length => 25), wiki %>
+                <%= link_to "Edit", edit_wiki_path(wiki), class: 'btn btn-success' %>
+                <%= link_to "Delete Wiki", [wiki], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
+              </small>
+            </div>
+          </div>
+          <% end %>
+      </div>
     </div>
     <br>
     <br>
