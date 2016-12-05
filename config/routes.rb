@@ -5,15 +5,13 @@ Rails.application.routes.draw do
   devise_for :users
   get 'welcome/index'
 
-  get 'wikis' => 'wikis#index'
-
   get 'about' => 'welcome#about'
 
   get 'blocipedia' => 'welcome#index'
 
-  root 'wikis#index',
-    as: :authenticated_root,
-    constraints: lambda { |req| req.session[:user_id].present? }
+  authenticated :user do
+    root 'wikis#index', as: :authenticated_root
+  end
 
   root 'welcome#index'
 

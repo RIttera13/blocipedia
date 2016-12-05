@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :wikis
 
-  before_save { self.email = email.downcase if email.present? }
-  before_save { self.role ||= :standard }
-
   enum role: [:standard, :premium, :admin]
 
   def avatar_url(size)
