@@ -23,6 +23,8 @@ gem 'figaro'
 gem 'pry'
 gem 'devise'
 gem 'pundit'
+gem 'stripe'
+
 
 group :development, :test do
   gem 'byebug'

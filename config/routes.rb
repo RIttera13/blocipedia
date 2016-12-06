@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   resources :wikis
 
+  resources :charges, only: [:new, :create]
+
+  post "users/edit" => "charges#down_grade"
+
   devise_for :users
   get 'welcome/index'
 
