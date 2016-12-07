@@ -7,13 +7,14 @@ end
 
 users = User.all
 
-20.times do
+200.times do
   Wiki.create!(
+    user:   users.sample,
     title: Faker::StarWars.character,
     body: Faker::ChuckNorris.fact
   )
 end
-topics = Wiki.all
+wiki = Wiki.all
 
 admin = User.create!(
   email:    'admin@b.com',

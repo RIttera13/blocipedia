@@ -41,6 +41,11 @@ class ChargesController < ApplicationController
 
   def down_grade
       current_user.standard!
+      current_user.wikis.each do |wiki|
+        wiki.private = false
+        wiki.save
+      end
+
       redirect_to wikis_path(current_user)
   end
 end
