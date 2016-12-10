@@ -17,5 +17,8 @@
   <div class="col-md-4 text-center">
     <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
     <%= link_to "Delete Wiki", [@wiki], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
+    <% if @wiki.id? && (current_user.admin? || (current_user == @wiki.user && current_user.premium?))%>
+      <%= link_to "Manage Collaborators", wiki_collaborators_path(@wiki), class: 'btn btn-warning' %>
+    <% end %>
   </div>
 </div>

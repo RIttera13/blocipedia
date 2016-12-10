@@ -59,6 +59,16 @@ font-family: "Times New Roman", Times, serif;
   font-size: 22px;
 }
 
+.btn-new-wiki {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  height: 50px;
+  width: 164px;
+  text-align: center;
+  font-size: 22px;
+}
+
 .gravatar {
   margin-top: -14px;
   padding-right: 7px;
@@ -74,6 +84,10 @@ font-family: "Times New Roman", Times, serif;
 
 .main-center {
 text-align: center;
+}
+
+.text-right {
+text-align: right;
 }
 
 .minitar {
@@ -124,4 +138,25 @@ text-align: center;
 .scroll {
   max-height: 600px;
   overflow: auto;
+}
+
+.style_image {
+  width: 300px;
+  height:228px;
+}
+.checkbox {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 21px;
+}
+
+.checkbox_custom {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.input[type="radio"], input[type="checkbox"] {
+  margin: 9px 0 0 ;
 }

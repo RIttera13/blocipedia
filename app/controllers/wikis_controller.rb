@@ -2,7 +2,7 @@ class WikisController < ApplicationController
 before_action :authenticate_user!, except: [:show, :new, :create]
 
   def index
-    @wikis = Wiki.all
+    @wikis = policy_scope(Wiki)
   end
 
   def show
@@ -14,8 +14,7 @@ before_action :authenticate_user!, except: [:show, :new, :create]
   end
 
   def create
-    @wiki = Wiki.new(wiki_params)
-    @wiki.user = current_user
+    @wiki = current_user.wikis.new(wiki_params)
 
     if @wiki.save
       redirect_to @wiki, notice: "Wiki was saved successfully."
@@ -57,13 +56,5 @@ before_action :authenticate_user!, except: [:show, :new, :create]
 
   def wiki_params
     params.require(:wiki).permit(:title, :body, :private)
-  end
-
-  def authorize_user
-    wiki = Wiki.find(params[:id])
-    unless current_user == wiki.user || current_user.admin?
-      flash[:alert] = "You must be an admin to do that."
-      redirect_to [wiki]
-    end
   end
 end
